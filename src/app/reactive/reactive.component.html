@@ -1,0 +1,20 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" formControlName="name" required>
+  </label>
+  <label>
+    Mail:
+    <input type="text" formControlName="mail">
+  </label>
+  <label>
+    Tel:
+    <input type="text" formControlName="tel">
+  </label>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
+
+<p>
+  Form Value: {{ userForm.value | json }}
+  Form Status: {{ userForm.valid}}
+</p>

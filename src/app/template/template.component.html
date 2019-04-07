@@ -1,0 +1,35 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" [(ngModel)]="user.name11" name="name" required>
+  </label>
+  <label>
+    Mail:
+    <input type="text" [(ngModel)]="user.mail" name="mail">
+  </label>
+  <label>
+    Tel:
+    <input type="text" [(ngModel)]="user.tel" name="tel12">
+  </label>
+  <label>
+    Street:
+    <input type="text" [(ngModel)]="user.obj.street" name="street">
+  </label>
+  <label>
+    都道府県 :
+    <select [(ngModel)]="user.prefecture" name="prefecture">
+      <option *ngFor="let item of list" [value]="item">{{item}}</option>
+    </select>
+  </label>
+  <input type="radio" id="sex1" [(ngModel)]="user.sex"
+    name="sex" value="man">
+  <label for="sex1">男</label>
+  <input type="radio" id="sex2" [(ngModel)]="user.sex"
+    name="sex" value="woman" id>
+  <label for="sex2">女</label>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
+
+<p>
+  Form Value: {{ userForm.value | json }}
+</p>
